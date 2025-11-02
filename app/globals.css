@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "../styles/variables.css";
+
+:root {
+    --background: #ffffff;
+    --foreground: #000000;
+    --navbar-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --footer-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ffffff;
+        --navbar-bg: #111827;
+        --footer-bg: #111827;
+    }
+}
+
+body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Light theme - crisp white background, black text */
+html.light body,
+html:not(.dark) body {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* Dark theme - dark background, light text */
+html.dark body {
+    background: #0a0a0a;
+    color: #ffffff;
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+/* Typography improvements */
+.prose h1 {
+    @apply text-4xl font-bold text-gray-900 dark:text-white mb-6 mt-8 leading-tight;
+}
+
+.prose h2 {
+    @apply text-3xl font-bold text-gray-900 dark:text-white mb-4 mt-8 leading-tight;
+}
+
+.prose h3 {
+    @apply text-2xl font-semibold text-gray-900 dark:text-white mb-3 mt-6 leading-snug;
+}
+
+.prose p {
+    @apply text-gray-900 dark:text-gray-200 mb-4 leading-relaxed text-base;
+}
+
+.prose strong {
+    @apply font-bold text-gray-900 dark:text-white;
+}
+
+.prose a {
+    @apply text-blue-600 dark:text-blue-400 hover:underline;
+}
+
+.prose ul,
+.prose ol {
+    @apply mb-4 space-y-2 text-gray-900 dark:text-gray-200;
+}
+
+.prose li {
+    @apply leading-relaxed;
+}
+
+.prose code {
+    @apply bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-2 py-1 rounded text-sm font-mono;
+}
+
+.prose pre {
+    @apply bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto mb-4;
+}
+
+.prose pre code {
+    @apply bg-transparent p-0;
+}
+
+.prose blockquote {
+    @apply border-l-4 border-blue-500 dark:border-blue-400 pl-4 italic text-gray-700 dark:text-gray-300 my-4;
+}
